@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+# Don't use set -e, handle errors individually
 
 echo "=== Configuring system ==="
 
@@ -38,12 +38,14 @@ systemctl enable home-HDEX.mount || true
 # SERVICES
 # ─────────────────────────────────────────────────────────────────────────────
 echo "Enabling services..."
-systemctl enable greetd.service
-systemctl enable firewalld.service
-systemctl enable bluetooth.service
-systemctl enable libvirtd.service
-systemctl enable upower.service
-systemctl enable power-profiles-daemon.service
+# Disable gdm first if it exists, then enable greetd
+systemctl disable gdm.service 2>/dev/null || true
+systemctl enable greetd.service || true
+systemctl enable firewalld.service || true
+systemctl enable bluetooth.service || true
+systemctl enable libvirtd.service || true
+systemctl enable upower.service || true
+systemctl enable power-profiles-daemon.service || true
 
 # ─────────────────────────────────────────────────────────────────────────────
 # FIREWALL - OpenMU ports
