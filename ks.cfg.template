@@ -5,52 +5,48 @@
 text
 reboot
 
-# Idioma e teclado
+# Language and keyboard
 lang pt_BR.UTF-8
 keyboard br-abnt2
 timezone America/Sao_Paulo --utc
 
-# Rede
+# Network
 network --bootproto=dhcp --device=link --activate
 network --hostname=actus-spei
 
-# Usuário
-# Gerar hash: python3 -c 'import crypt; print(crypt.crypt("SENHA", crypt.mksalt(crypt.METHOD_SHA512)))'
+# User (replace TROCAR_PELO_HASH with password hash from: mkpasswd -m sha-512)
 rootpw --lock
 user --name=r0naldoom --groups=wheel --iscrypted --password=TROCAR_PELO_HASH
 
-# Disco /dev/sdb - preserva outras partições (HDWIN)
-ignoredisk --only-use=sdb
-clearpart --all --initlabel --drives=sdb
-zerombr
+# Disk /dev/sda - Linux partition (preserves sda5/HDWIN and sdb/Windows)
+ignoredisk --only-use=sda
+# Clear only Linux partitions (1-4), preserve HDWIN (sda5)
+clearpart --list=sda1,sda2,sda3,sda4
 
-# Partições (mesmo layout do NixOS)
-part /boot --fstype=vfat --size=2048 --ondisk=sdb --asprimary
-part swap --fstype=swap --size=4096 --ondisk=sdb
-part / --fstype=ext4 --size=153600 --ondisk=sdb
-part /home --fstype=ext4 --size=501760 --ondisk=sdb --grow
+# Partitions (same layout as NixOS)
+part /boot/efi --fstype=efi --size=2048 --ondisk=sda
+part swap --fstype=swap --size=4096 --ondisk=sda
+part / --fstype=ext4 --size=153600 --ondisk=sda
+part /home --fstype=ext4 --size=460000 --ondisk=sda
 
-# Bootloader
-bootloader --location=mbr --boot-drive=sdb
+# UEFI Bootloader
+bootloader --location=none --boot-drive=sda --driveorder=sda
 
 # OSTree base
 ostreesetup --osname="fedora" --remote="fedora" --url="https://ostree.fedoraproject.org" --ref="fedora/41/x86_64/silverblue" --nogpg
 
-# Pós-instalação
+# Post-install
 %post --log=/root/ks-post.log
 
-# Rebase para imagem customizada (descomentar quando imagem estiver pronta)
-# rpm-ostree rebase --bypass-driver ostree-unverified-registry:ghcr.io/r0naldoom/atomic-config:latest
-
-# Shell padrão
+# Default shell
 usermod -s /usr/bin/fish r0naldoom
 
-# Diretórios
+# Directories
 mkdir -p /home/r0naldoom/.config
 mkdir -p /home/r0naldoom/.local/bin
 chown -R r0naldoom:r0naldoom /home/r0naldoom
 
-# Monta HDWIN (partição Windows preservada)
+# Mount HDWIN (Windows data partition on sda5)
 mkdir -p /mnt/hdwin
 echo 'LABEL=HDWIN /mnt/hdwin ntfs-3g uid=1000,gid=100,dmask=022,fmask=133,nofail 0 0' >> /etc/fstab
 
