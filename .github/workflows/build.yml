@@ -1,39 +1,37 @@
-name: Build BlueBuild Image
-
+name: bluebuild
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'recipe.yml'
-      - 'scripts/**'
-      - 'system/**'
-      - '.github/workflows/build.yml'
   schedule:
-    # Weekly rebuild to get latest base image updates
-    - cron: '0 6 * * 0'
+    # Build at 06:00 UTC every day (20 min after ublue base images)
+    - cron: "00 06 * * *"
+  push:
+    paths-ignore:
+      - "**.md"
+  pull_request:
   workflow_dispatch:
 
-env:
-  IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
-  build:
-    name: Build and Push Image
+  bluebuild:
+    name: Build Custom Image
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
       id-token: write
-
+    strategy:
+      fail-fast: false
+      matrix:
+        recipe:
+          - recipe.yml
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Build image
-        uses: blue-build/github-action@v1
+      - name: Build Custom Image
+        uses: blue-build/github-action@v1.11
         with:
-          recipe: recipe.yml
+          recipe: ${{ matrix.recipe }}
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
+          maximize_build_space: true
