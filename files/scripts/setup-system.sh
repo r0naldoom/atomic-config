@@ -31,8 +31,8 @@ grep -q /usr/bin/fish /etc/shells || echo /usr/bin/fish >> /etc/shells
 # HDEX MOUNT
 # ─────────────────────────────────────────────────────────────────────────────
 echo "Configuring HDEX mount..."
-mkdir -p /home/HDEX
-systemctl enable home-HDEX.mount
+mkdir -p /home/HDEX || true
+systemctl enable home-HDEX.mount || true
 
 # ─────────────────────────────────────────────────────────────────────────────
 # SERVICES
