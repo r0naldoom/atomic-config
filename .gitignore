@@ -1,6 +1,7 @@
 # Secrets (passwords, keys)
 secrets
 ks.cfg
+cosign.key
 
 # Python
 __pycache__/
