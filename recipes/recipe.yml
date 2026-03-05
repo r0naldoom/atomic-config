@@ -29,7 +29,7 @@ modules:
       # ─────────────────────────────────────────────────────────────────────────
       - noctalia-shell
       - adw-gtk3-theme
-      - bibata-cursor-themes
+      # - bibata-cursor-themes  # needs COPR
       - nwg-look
       - qt5ct
       - qt6ct
@@ -44,10 +44,11 @@ modules:
       - cliphist
       - swww
       - swayosd
-      - wl-color-picker
+      # - wl-color-picker  # needs COPR
       - brightnessctl
       - playerctl
-      - fnott
+      # - fnott  # needs COPR, use mako instead
+      - mako
       - libnotify
       - wev
 
@@ -86,7 +87,6 @@ modules:
       # ─────────────────────────────────────────────────────────────────────────
       # MUSIC
       # ─────────────────────────────────────────────────────────────────────────
-      - mpd
       - cava
 
       # ─────────────────────────────────────────────────────────────────────────
@@ -116,7 +116,8 @@ modules:
       # ─────────────────────────────────────────────────────────────────────────
       # POLKIT & AUTH
       # ─────────────────────────────────────────────────────────────────────────
-      - polkit-gnome
+      - polkit
+      - lxpolkit
       - gnome-keyring
       - seahorse
 
