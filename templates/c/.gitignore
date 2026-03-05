@@ -1,0 +1,5 @@
+.direnv/
+build/
+*.o
+*.a
+*.so

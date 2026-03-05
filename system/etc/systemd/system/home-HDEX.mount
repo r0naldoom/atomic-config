@@ -1,0 +1,12 @@
+[Unit]
+Description=HDEX NTFS Drive
+After=local-fs.target
+
+[Mount]
+What=/dev/disk/by-uuid/94301B6E301B5698
+Where=/home/HDEX
+Type=ntfs-3g
+Options=rw,uid=1000,gid=100,dmask=022,fmask=133,nofail
+
+[Install]
+WantedBy=multi-user.target

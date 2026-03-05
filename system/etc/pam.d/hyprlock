@@ -1,0 +1,5 @@
+# PAM configuration for hyprlock
+auth       include      login
+account    include      login
+password   include      login
+session    include      login

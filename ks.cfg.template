@@ -1,0 +1,57 @@
+# Kickstart - Instalação automatizada Fedora Atomic
+# Uso: No boot do ISO, editar linha GRUB e adicionar:
+#      inst.ks=https://raw.githubusercontent.com/r0naldoom/atomic-config/main/ks.cfg
+
+text
+reboot
+
+# Idioma e teclado
+lang pt_BR.UTF-8
+keyboard br-abnt2
+timezone America/Sao_Paulo --utc
+
+# Rede
+network --bootproto=dhcp --device=link --activate
+network --hostname=actus-spei
+
+# Usuário
+# Gerar hash: python3 -c 'import crypt; print(crypt.crypt("SENHA", crypt.mksalt(crypt.METHOD_SHA512)))'
+rootpw --lock
+user --name=r0naldoom --groups=wheel --iscrypted --password=TROCAR_PELO_HASH
+
+# Disco /dev/sdb - preserva outras partições (HDWIN)
+ignoredisk --only-use=sdb
+clearpart --all --initlabel --drives=sdb
+zerombr
+
+# Partições (mesmo layout do NixOS)
+part /boot --fstype=vfat --size=2048 --ondisk=sdb --asprimary
+part swap --fstype=swap --size=4096 --ondisk=sdb
+part / --fstype=ext4 --size=153600 --ondisk=sdb
+part /home --fstype=ext4 --size=501760 --ondisk=sdb --grow
+
+# Bootloader
+bootloader --location=mbr --boot-drive=sdb
+
+# OSTree base
+ostreesetup --osname="fedora" --remote="fedora" --url="https://ostree.fedoraproject.org" --ref="fedora/41/x86_64/silverblue" --nogpg
+
+# Pós-instalação
+%post --log=/root/ks-post.log
+
+# Rebase para imagem customizada (descomentar quando imagem estiver pronta)
+# rpm-ostree rebase --bypass-driver ostree-unverified-registry:ghcr.io/r0naldoom/atomic-config:latest
+
+# Shell padrão
+usermod -s /usr/bin/fish r0naldoom
+
+# Diretórios
+mkdir -p /home/r0naldoom/.config
+mkdir -p /home/r0naldoom/.local/bin
+chown -R r0naldoom:r0naldoom /home/r0naldoom
+
+# Monta HDWIN (partição Windows preservada)
+mkdir -p /mnt/hdwin
+echo 'LABEL=HDWIN /mnt/hdwin ntfs-3g uid=1000,gid=100,dmask=022,fmask=133,nofail 0 0' >> /etc/fstab
+
+%end

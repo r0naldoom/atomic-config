@@ -1,0 +1,14 @@
+[connection]
+id=enp2s0
+type=ethernet
+interface-name=enp2s0
+autoconnect=true
+
+[ipv4]
+method=manual
+addresses=192.168.0.109/24
+gateway=192.168.0.1
+dns=8.8.8.8;8.8.4.4;
+
+[ipv6]
+method=disabled

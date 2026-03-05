@@ -1,0 +1,6 @@
+.direnv/
+build/
+*.o
+*.a
+*.so
+compile_commands.json

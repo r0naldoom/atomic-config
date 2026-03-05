@@ -1,0 +1,15 @@
+# Secrets (passwords, keys)
+secrets
+ks.cfg
+
+# Python
+__pycache__/
+*.pyc
+
+# Editor
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store

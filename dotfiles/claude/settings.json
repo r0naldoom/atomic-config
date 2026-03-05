@@ -1,0 +1,50 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(git:*)",
+      "Bash(npm:*)",
+      "Bash(cargo:*)",
+      "Bash(go:*)",
+      "Bash(python:*)",
+      "Bash(uv:*)",
+      "Bash(make:*)",
+      "Bash(cmake:*)",
+      "Bash(tree:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(fd:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(file:*)",
+      "Bash(chmod:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(touch:*)",
+      "Bash(distrobox:*)",
+      "Bash(flatpak:*)",
+      "Bash(podman:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:docs.noctalia.dev)",
+      "WebFetch(domain:wiki.hyprland.org)",
+      "WebFetch(domain:nixos.wiki)",
+      "WebFetch(domain:docs.fedoraproject.org)",
+      "WebSearch"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(secrets)",
+      "Read(**/credentials*)",
+      "Read(**/*secret*)",
+      "Read(**/*token*)"
+    ]
+  },
+  "cleanupPeriodDays": 30,
+  "showTurnDuration": true
+}

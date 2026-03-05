@@ -1,0 +1,23 @@
+# sesh config - integrado com ~/c/
+
+[default_session]
+# Usa o nome do diretório como nome da sessão
+startup_command = "nvim"
+
+# Diretórios para busca rápida (além do zoxide)
+[[session]]
+name = "dots"
+path = "~/nixos-config"
+startup_command = "nvim"
+
+[[session]]
+name = "work"
+path = "~/c/work"
+
+[[session]]
+name = "projects"
+path = "~/c/projects"
+
+[[session]]
+name = "study"
+path = "~/c/study"

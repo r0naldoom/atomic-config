@@ -1,0 +1,127 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "source": "~/.config/fastfetch/logos/cross.txt",
+    "type": "file",
+    "padding": {
+      "top": 1,
+      "left": 2,
+      "right": 2
+    },
+    "color": {
+      "1": "38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}",
+      "2": "38;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}"
+    }
+  },
+  "display": {
+    "separator": "",
+    "color": {
+      "keys": "38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}"
+    }
+  },
+  "modules": [
+    {
+      "type": "title",
+      "format": " \u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m \u001b[1m\u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}mNIXOS \u001b[0m\u001b[38;2;{{colors.on_primary.default.red}};{{colors.on_primary.default.green}};{{colors.on_primary.default.blue}}m──────────────"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": " \u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m\u001b[38;2;{{colors.on_primary.default.red}};{{colors.on_primary.default.green}};{{colors.on_primary.default.blue}};48;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m  SYSTEM \u001b[0m\u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m"
+    },
+    "break",
+    {
+      "type": "os",
+      "key": " \u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m\u001b[38;2;{{colors.on_primary.default.red}};{{colors.on_primary.default.green}};{{colors.on_primary.default.blue}};48;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m󱄅 OS \u001b[0m\u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}};48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m",
+      "format": "\u001b[48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m \u001b[38;2;{{colors.on_surface.default.red}};{{colors.on_surface.default.green}};{{colors.on_surface.default.blue}}m{3}\u001b[0m\u001b[38;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m"
+    },
+    "break",
+    {
+      "type": "kernel",
+      "key": " \u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m\u001b[38;2;{{colors.on_primary.default.red}};{{colors.on_primary.default.green}};{{colors.on_primary.default.blue}};48;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m KE \u001b[0m\u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}};48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m",
+      "format": "\u001b[48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m \u001b[38;2;{{colors.on_surface.default.red}};{{colors.on_surface.default.green}};{{colors.on_surface.default.blue}}m{2}\u001b[0m\u001b[38;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m"
+    },
+    "break",
+    {
+      "type": "uptime",
+      "key": " \u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m\u001b[38;2;{{colors.on_primary.default.red}};{{colors.on_primary.default.green}};{{colors.on_primary.default.blue}};48;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m󰅐 UP \u001b[0m\u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}};48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m",
+      "format": "\u001b[48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m \u001b[38;2;{{colors.on_surface.default.red}};{{colors.on_surface.default.green}};{{colors.on_surface.default.blue}}m{2}h {3}m\u001b[0m\u001b[38;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m"
+    },
+    "break",
+    {
+      "type": "packages",
+      "key": " \u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m\u001b[38;2;{{colors.on_primary.default.red}};{{colors.on_primary.default.green}};{{colors.on_primary.default.blue}};48;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m󰏖 PK \u001b[0m\u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}};48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m",
+      "format": "\u001b[48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m \u001b[38;2;{{colors.on_surface.default.red}};{{colors.on_surface.default.green}};{{colors.on_surface.default.blue}}m{1} (nix)\u001b[0m\u001b[38;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": " \u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m\u001b[38;2;{{colors.on_primary.default.red}};{{colors.on_primary.default.green}};{{colors.on_primary.default.blue}};48;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m  SOFTWARE \u001b[0m\u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m"
+    },
+    "break",
+    {
+      "type": "wm",
+      "key": " \u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m\u001b[38;2;{{colors.on_primary.default.red}};{{colors.on_primary.default.green}};{{colors.on_primary.default.blue}};48;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m WM \u001b[0m\u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}};48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m",
+      "format": "\u001b[48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m \u001b[38;2;{{colors.on_surface.default.red}};{{colors.on_surface.default.green}};{{colors.on_surface.default.blue}}m{1}\u001b[0m\u001b[38;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m"
+    },
+    "break",
+    {
+      "type": "shell",
+      "key": " \u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m\u001b[38;2;{{colors.on_primary.default.red}};{{colors.on_primary.default.green}};{{colors.on_primary.default.blue}};48;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m SH \u001b[0m\u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}};48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m",
+      "format": "\u001b[48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m \u001b[38;2;{{colors.on_surface.default.red}};{{colors.on_surface.default.green}};{{colors.on_surface.default.blue}}m{1}\u001b[0m\u001b[38;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m"
+    },
+    "break",
+    {
+      "type": "terminal",
+      "key": " \u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m\u001b[38;2;{{colors.on_primary.default.red}};{{colors.on_primary.default.green}};{{colors.on_primary.default.blue}};48;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m TR \u001b[0m\u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}};48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m",
+      "format": "\u001b[48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m \u001b[38;2;{{colors.on_surface.default.red}};{{colors.on_surface.default.green}};{{colors.on_surface.default.blue}}m{5}\u001b[0m\u001b[38;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m"
+    },
+    "break",
+    {
+      "type": "display",
+      "key": " \u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m\u001b[38;2;{{colors.on_primary.default.red}};{{colors.on_primary.default.green}};{{colors.on_primary.default.blue}};48;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m DP \u001b[0m\u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}};48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m",
+      "format": "\u001b[48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m \u001b[38;2;{{colors.on_surface.default.red}};{{colors.on_surface.default.green}};{{colors.on_surface.default.blue}}m{4}x{2} @ {3}Hz\u001b[0m\u001b[38;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": " \u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m\u001b[38;2;{{colors.on_primary.default.red}};{{colors.on_primary.default.green}};{{colors.on_primary.default.blue}};48;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m  HARDWARE \u001b[0m\u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m"
+    },
+    "break",
+    {
+      "type": "cpu",
+      "key": " \u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m\u001b[38;2;{{colors.on_primary.default.red}};{{colors.on_primary.default.green}};{{colors.on_primary.default.blue}};48;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m CP \u001b[0m\u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}};48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m",
+      "format": "\u001b[48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m \u001b[38;2;{{colors.on_surface.default.red}};{{colors.on_surface.default.green}};{{colors.on_surface.default.blue}}m{1}\u001b[0m\u001b[38;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m"
+    },
+    "break",
+    {
+      "type": "gpu",
+      "key": " \u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m\u001b[38;2;{{colors.on_primary.default.red}};{{colors.on_primary.default.green}};{{colors.on_primary.default.blue}};48;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m󰢮 GP \u001b[0m\u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}};48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m",
+      "format": "\u001b[48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m \u001b[38;2;{{colors.on_surface.default.red}};{{colors.on_surface.default.green}};{{colors.on_surface.default.blue}}m{2}\u001b[0m\u001b[38;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m"
+    },
+    "break",
+    {
+      "type": "memory",
+      "key": " \u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m\u001b[38;2;{{colors.on_primary.default.red}};{{colors.on_primary.default.green}};{{colors.on_primary.default.blue}};48;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m RA \u001b[0m\u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}};48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m",
+      "format": "\u001b[48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m \u001b[38;2;{{colors.on_surface.default.red}};{{colors.on_surface.default.green}};{{colors.on_surface.default.blue}}m{1} / {2}\u001b[0m\u001b[38;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m"
+    },
+    "break",
+    {
+      "type": "disk",
+      "key": " \u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m\u001b[38;2;{{colors.on_primary.default.red}};{{colors.on_primary.default.green}};{{colors.on_primary.default.blue}};48;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m󰉉 DI \u001b[0m\u001b[38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}};48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m",
+      "folders": "/",
+      "format": "\u001b[48;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m \u001b[38;2;{{colors.on_surface.default.red}};{{colors.on_surface.default.green}};{{colors.on_surface.default.blue}}m{1} / {2} ({9})\u001b[0m\u001b[38;2;{{colors.surface_variant.default.red}};{{colors.surface_variant.default.green}};{{colors.surface_variant.default.blue}}m"
+    },
+    "break",
+    {
+      "type": "colors",
+      "symbol": "circle",
+      "block": {
+        "range": [
+          1,
+          6
+        ]
+      }
+    }
+  ]
+}

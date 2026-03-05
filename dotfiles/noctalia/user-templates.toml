@@ -1,0 +1,46 @@
+# Noctalia User Templates
+# Equivalente ao modules/theming/user.nix do NixOS
+
+[templates.starship]
+input_path = "~/.config/noctalia/templates/starship.toml"
+output_path = "~/.config/starship/starship.toml"
+
+[templates.tmux]
+input_path = "~/.config/noctalia/templates/tmux-colors.conf"
+output_path = "~/.config/tmux/noctalia-colors.conf"
+post_hook = "tmux source-file ~/.config/tmux/tmux.conf 2>/dev/null || true"
+
+[templates.ghostty]
+input_path = "~/.config/noctalia/templates/ghostty.conf"
+output_path = "~/.config/ghostty/themes/noctalia"
+post_hook = "pkill -USR2 ghostty 2>/dev/null || true"
+
+[templates.yazi]
+input_path = "~/.config/noctalia/templates/yazi.toml"
+output_path = "~/.config/yazi/theme.toml"
+
+[templates.eza]
+input_path = "~/.config/noctalia/templates/eza.yml"
+output_path = "~/.config/eza/theme.yml"
+
+[templates.fastfetch]
+input_path = "~/.config/noctalia/templates/fastfetch.jsonc"
+output_path = "~/.config/fastfetch/config.jsonc"
+
+[templates.btop]
+input_path = "~/.config/noctalia/templates/btop.theme"
+output_path = "~/.config/btop/themes/noctalia.theme"
+
+[templates.rmpc]
+input_path = "~/.config/noctalia/templates/rmpc.ron"
+output_path = "~/.config/rmpc/noctalia-theme.ron"
+
+[templates.nvim-sync]
+input_path = "~/.config/noctalia/templates/nvim-sync.txt"
+output_path = "/tmp/noctalia-nvim-sync"
+post_hook = "nvim --server /tmp/nvim-$USER.sock --remote-send '<Cmd>lua require(\"noctalia-sync\").apply()<CR>' 2>/dev/null || true"
+
+[templates.wallpaper-sync]
+input_path = "~/.config/noctalia/templates/wallpaper-sync.txt"
+output_path = "/tmp/noctalia-wallpaper-sync"
+post_hook = "~/.config/hypr/scripts/wallpaper-sync.sh 2>/dev/null || true"
