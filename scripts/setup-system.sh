@@ -60,7 +60,7 @@ firewall-offline-cmd --zone=public --add-port=55906/tcp || true
 firewall-offline-cmd --zone=public --add-port=55980/tcp || true
 
 # ─────────────────────────────────────────────────────────────────────────────
-# SUDOERS - nvidia-settings e podman sem senha
+# SUDOERS - nvidia-settings and podman without password
 # ─────────────────────────────────────────────────────────────────────────────
 echo "Configuring sudoers..."
 cat > /etc/sudoers.d/custom << 'EOF'

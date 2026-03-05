@@ -1,0 +1,39 @@
+name: Build BlueBuild Image
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'recipe.yml'
+      - 'scripts/**'
+      - 'system/**'
+      - '.github/workflows/build.yml'
+  schedule:
+    # Weekly rebuild to get latest base image updates
+    - cron: '0 6 * * 0'
+  workflow_dispatch:
+
+env:
+  IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
+
+jobs:
+  build:
+    name: Build and Push Image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build image
+        uses: blue-build/github-action@v1
+        with:
+          recipe: recipe.yml
+          cosign_private_key: ${{ secrets.SIGNING_SECRET }}
+          registry_token: ${{ github.token }}
+          pr_event_number: ${{ github.event.number }}
