@@ -161,8 +161,8 @@ modules:
 
   - type: files
     files:
-      - source: files
-        destination: /
+      - source: etc
+        destination: /etc
 
   - type: script
     scripts:
