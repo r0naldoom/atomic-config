@@ -1,6 +1,6 @@
-# Kickstart - Instalação automatizada Fedora Atomic
-# Uso: No boot do ISO, editar linha GRUB e adicionar:
-#      inst.ks=https://raw.githubusercontent.com/r0naldoom/atomic-config/main/ks.cfg
+# Kickstart - Fedora Atomic automated installation
+# Usage: On ISO boot, edit GRUB line and add:
+#      inst.ks=https://gist.githubusercontent.com/r0naldoom/01b70090c9a49a6daebc701bd6d0647e/raw/ks.cfg
 
 text
 reboot
